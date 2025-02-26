@@ -25,14 +25,17 @@ The colony is modeled as a **system of interacting agents**, where each individu
 Computational experiments simulated the movement of a macaque group in response to a modeled tornado on Cayo Santiago. The results highlighted the **critical role of leadership and anticipatory behaviour** in ensuring group survival. Simulations confirmed that **mortality rates significantly increase when leader anticipation is absent**, demonstrating the importance of informed decision-making during extreme events.  
 
 ### **Results (GIFs of Simulations)**  
+<table>
+  <tr>
+    <td align="center">
+      <img src="supplementary_material/simulation_0leaders.gif" width="100%">
+      <p><em>Simulation of macaques responding to an approaching storm and without leader anticipation.</em></p>
+    </td>
+    <td align="center">
+      <img src="supplementary_material/simulation_10leaders.gif" width="100%">
+      <p><em>Comparison of survival outcomes with 10 leaders with anticipation.</em></p>
+    </td>
+  </tr>
+</table>
 
-<div style="display: flex; justify-content: center;">
-  <div style="margin-right: 10px;">
-    <img src="supplementary_material/simulation_0leaders.gif" width="45%">
-    <p align="center"><em>*Simulation of macaques responding to an approaching storm and without leader anticipation.*  </em></p>
-  </div>
-  <div>
-    <img src="supplementary_material/simulation_10leaders.gif" width="45%">
-    <p align="center"><em>*Comparison of survival outcomes with 10 leaders with anticipation.* </em></p>
-  </div>
-</div>
+
