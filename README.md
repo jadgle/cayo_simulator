@@ -26,17 +26,9 @@ Computational experiments simulated the movement of a macaque group in response 
 
 ### **Results (GIFs of Simulations)**  
 
-![Simulation 1](path_to_simulation_1.gif)  
-*Simulation of macaques responding to an approaching storm.*  
+![Simulation 1](supplementary_material/simulation_0leaders.gif)  
+*Simulation of macaques responding to an approaching storm and without leader anticipation.*  
 
-![Simulation 2](path_to_simulation_2.gif)  
-*Comparison of survival outcomes with and without leader anticipation.*  
+![Simulation 2](supplementary_material/simulation_10leaders.gif)  
+*Comparison of survival outcomes with 10 leaders with anticipation.*  
 
----
-
-## How to Use the Code  
-
-1. **Clone the Repository:**  
-   ```sh
-   git clone https://github.com/your-repo-name.git
-   cd your-repo-name
