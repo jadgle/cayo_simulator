@@ -1,88 +1,48 @@
-# 🐒 Towards a Quantitative Understanding of Collective Animal Behaviour Under Climatic Events
+# Towards a Quantitative Understanding of Collective Animal Behaviour Under Climatic Events
 
-Climate change poses significant threats to biodiversity, with extreme weather events such as hurricanes and wildfires devastating animal populations at unprecedented scales. Animals exhibit **collective behaviours** to respond to such threats, emerging from interactions among individuals within a group. Understanding these interaction dynamics is key to uncovering **self-organization** and **decision-making** mechanisms in animal populations.  
+Climate change poses significant threats to biodiversity, with extreme weather events such as hurricanes and wildfires devastating animal populations at unprecedented scales. Animals exhibit collective behaviours to respond to such threats, emerging from interactions among individuals within a group. Understanding these interaction dynamics is key to uncovering self-organization and decision-making mechanisms in animal populations. This project set out to understand collective animal behaviour through a combination of mathematical modeling, simulations, and empirical data collection. 
 
-This project aims to explore these behaviours through a combination of **mathematical modeling, simulations, and empirical data collection**.  
+## Case Study  
 
----
+The survival of 98% of the macaque population in Cayo Santiago during Hurricane Maria in 2017 was chosen as the primary case study. This event provided a unique opportunity to study the role of collective behaviour in extreme climatic events and served as the foundation for developing a mathematical model.
 
-## 🌍 Case Study: Macaque Survival During Hurricane Maria
+## Mathematical Modeling  
 
-The **2017 Hurricane Maria** struck Cayo Santiago, home to a colony of **rhesus macaques**, yet an astounding **98% of the population survived**. This event was chosen as a **primary case study** due to its relevance in understanding how collective behaviour and leadership influence survival in extreme climatic conditions.  
+A dynamical system was developed to represent macaque populations as interacting agents driven by a combination of interaction forces and self-propulsion. A two-population model was constructed to distinguish followers from leaders, incorporating alignment, repulsion from the hurricane, and leader anticipation of the hurricane’s trajectory.
 
----
+The colony is modeled as a **system of interacting agents**, where each individual is influenced by both **endogenous** (social interactions) and **exogenous** (environmental) forces.
 
-## 🔬 Mathematical Model  
+### **Endogenous Forces (Social Interactions)**  
+Agents interact within a local neighborhood, consisting of a fixed number of closest agents, including a leader. The forces considered include:  
 
-A **dynamical system** was developed to model the macaque population as **interacting agents**, driven by social forces and environmental factors. The model distinguishes between:  
-- **Followers**, who respond to local interactions and external conditions  
-- **Leaders**, who anticipate the hurricane trajectory and guide the group  
+- **Attraction:** Macaques are attracted to each other beyond a certain distance to maintain group cohesion.  
+- **Repulsion:** Short-range repulsion prevents overcrowding and collisions.  
+- **Leader-Follower Dynamics:** Leaders have stronger attraction influence, guiding the group towards safe areas.  
 
-### **Agent-Based Formulation**  
-The colony is represented as a system of agents:  
-\[
-\{(\mathbf{x}_i, \mathbf{v}_i)\}_{i=1}^N
-\]
-where \( \mathbf{x}_i, \mathbf{v}_i \in \mathbb{R}^2 \) denote the **position** and **velocity** of the \( i \)-th agent. Each agent follows **Newton’s Second Law**:  
-\[
-\ddot{\mathbf{x}}_i = \mathbf{F}^{\text{endo}}_i + \mathbf{F}^{\text{exo}}_i
-\]
-where:  
-- \( \mathbf{F}^{\text{endo}}_i \) represents **social interaction forces**  
-- \( \mathbf{F}^{\text{exo}}_i \) accounts for **environmental influences** (hurricane impact)  
+### **Exogenous Forces (Environmental Influence)**  
+The environment exerts external influences on the macaques, including:  
 
-### **Social Interaction Forces**  
-Agents interact within a **local neighborhood** \( \mathcal{N} \), incorporating:  
-\[
-F_{i}^{\text{endo}} =  \sum\limits_{\substack{j\in\mathcal{N}}} 
-C_{1} (\mathbf{x}_j - \mathbf{x}_i) \mathbb{I}_{(\|\mathbf{x}_j - \mathbf{x}_i\| > r_1)}
-- C_{2} e^{-\|\mathbf{x}_j - \mathbf{x}_i\|^\gamma} \frac{\mathbf{x}_j - \mathbf{x}_i}{\|\mathbf{x}_j - \mathbf{x}_i\|}
-\mathbb{I}_{(\|\mathbf{x}_j - \mathbf{x}_i\| \leq r_2)}
-\]
-where:  
-- \( C_1, C_2 \) define **attraction** and **repulsion** strengths  
-- \( r_1, r_2 \) set interaction ranges  
-- **Followers** are strongly attracted to leaders  
+- **Wind Influence:** A force pushing individuals perpendicular to the wind direction, simulating the storm's impact.  
+- **Storm Repulsion:** A repulsive force from the storm center, increasing as the storm approaches.  
+- **Leader Anticipation:** Leaders can foresee the storm trajectory within a short time window, adjusting their movement accordingly.  
 
-### **Environmental Influence (Hurricane)**
-Agents are also influenced by the **storm's trajectory**, modeled as:  
-\[
-\mathbf{F}^{\text{exo}}_i = \Phi(\mathbf{x}_i) \cdot \hat{\mathbf{n}}_i + \kappa \frac{\mathbf{x}_i - \mathbf{x}_{c}(t)}{\|\mathbf{x}_i - \mathbf{x}_{c}(t)\|^3}
-\]
-where:  
-- \( \Phi(\mathbf{x}_i) \) is the **wind power**  
-- \( \mathbf{x}_c(t) \) is the **storm center**  
-- \( \kappa \) is the **repulsion strength**  
+## Simulations  
 
-Leaders anticipate the storm’s path within a time window \( \Delta t \):  
-\[
-\mathbf{F}^{\text{exo}}_{\text{leader}} = \Phi(\mathbf{x}_i) \cdot \hat{\mathbf{n}}_i + \kappa \int\limits_t^{t+\Delta t} \frac{\mathbf{x}_i - \mathbf{x}_{c}(s)}{\|\mathbf{x}_i - \mathbf{x}_{c}(s)\|^3} ds
-\]
+Computational experiments simulated the movement of a macaque group in response to a modeled tornado on Cayo Santiago. The results highlighted the **critical role of leadership and anticipatory behaviour** in ensuring group survival. Simulations confirmed that **mortality rates significantly increase when leader anticipation is absent**, demonstrating the importance of informed decision-making during extreme events.  
+
+### **Results (GIFs of Simulations)**  
+
+![Simulation 1](path_to_simulation_1.gif)  
+*Simulation of macaques responding to an approaching storm.*  
+
+![Simulation 2](path_to_simulation_2.gif)  
+*Comparison of survival outcomes with and without leader anticipation.*  
 
 ---
 
-## 🎮 Simulations  
+## How to Use the Code  
 
-Computational experiments modeled a **group of macaques** responding to an approaching hurricane.  
-
-Key findings:  
-✔ **Leaders play a crucial role** in guiding followers to safety  
-✔ **Without leadership, mortality rates increase significantly**  
-✔ **Stronger social ties** improve survival chances  
-
-### **Simulation 1: Leadership Enhances Survival**  
-![Leader Simulation](figures/leader_simulation.gif)  
-
-### **Simulation 2: No Leader, Higher Mortality**  
-![No Leader Simulation](figures/no_leader_simulation.gif)  
-
----
-
-## 🔧 Running the Code  
-
-### **Installation**  
-Ensure you have Python 3.x installed. Install dependencies via:  
-```bash
-pip install numpy matplotlib scipy
-
-
+1. **Clone the Repository:**  
+   ```sh
+   git clone https://github.com/your-repo-name.git
+   cd your-repo-name
