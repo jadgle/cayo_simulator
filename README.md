@@ -38,6 +38,6 @@ Computational experiments simulated the movement of a macaque group in response 
   </tr>
 </table>
 
-A full slide presentation of the project can be found [https://drive.google.com/file/d/1ypP5nySXio4Vw6qAMAJgTtWr8CADpW8S/view?usp=sharing](at this link). 
+A full slide presentation of the project can be found [at this link](https://drive.google.com/file/d/1ypP5nySXio4Vw6qAMAJgTtWr8CADpW8S/view?usp=sharing). 
 
 
