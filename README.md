@@ -12,19 +12,13 @@ A dynamical system was developed to represent macaque populations as interacting
 
 The colony is modeled as a **system of interacting agents**, where each individual is influenced by both **endogenous** (social interactions) and **exogenous** (environmental) forces.
 
-### **Endogenous Forces (Social Interactions)**  
-Agents interact within a local neighborhood, consisting of a fixed number of closest agents, including a leader. The forces considered include:  
+- Agents interact within a **local neighborhood**, consisting of a fixed number of closest agents, including a leader. The forces considered include a **long-range attraction** and **short-range repulsion**. The idea is that macaques want to maintain some level of **group cohesion** while preventing overcrowding and collisions.
+- Agents are also influenced by the **environment**, in this case the **moving storm**. This is represented in our model as a **wind-induced perpendicular movement** combined with a **repulsion from the storm center**.
+- The colony has a **hierarchical social structure**, where groups of macaques follow a **leader**.  
+  - Leaders are assumed to be **experienced elders** with knowledge of extreme events and safe routes.  
+  - Macaques with **stronger social ties**—especially those with access to leaders—are more likely to **survive the hurricane** due to knowledge of safe areas.  
+  - To reflect this, a subset of agents (**leaders**) is introduced with **anticipation capabilities**, allowing them to predict the storm trajectory within a short time window. Leaders also exert a **stronger attraction influence**, guiding the group towards safe areas.
 
-- **Attraction:** Macaques are attracted to each other beyond a certain distance to maintain group cohesion.  
-- **Repulsion:** Short-range repulsion prevents overcrowding and collisions.  
-- **Leader-Follower Dynamics:** Leaders have stronger attraction influence, guiding the group towards safe areas.  
-
-### **Exogenous Forces (Environmental Influence)**  
-The environment exerts external influences on the macaques, including:  
-
-- **Wind Influence:** A force pushing individuals perpendicular to the wind direction, simulating the storm's impact.  
-- **Storm Repulsion:** A repulsive force from the storm center, increasing as the storm approaches.  
-- **Leader Anticipation:** Leaders can foresee the storm trajectory within a short time window, adjusting their movement accordingly.  
 
 ## Simulations  
 
